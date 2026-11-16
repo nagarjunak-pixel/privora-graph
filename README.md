@@ -16,6 +16,12 @@
 
 ---
 
+## Live Sovereign DP-SGD, Bi-Temporal GraphRAG & Byzantine Workbench
+
+![PrivoraGraph Live Workbench — Rényi DP-SGD Accountant, SQL:2011 Bi-Temporal C++20 CSR PageRank & Byzantine Aggregation](docs/assets/workbench-preview.png)
+
+---
+
 ## Architecture Overview
 
 ```mermaid
