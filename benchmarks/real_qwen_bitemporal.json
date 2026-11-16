@@ -1,0 +1,78 @@
+{
+  "model_name": "qwen3.5:4b",
+  "num_cases": 6,
+  "naive_correct_count": 0,
+  "naive_accuracy_pct": 0.0,
+  "naive_future_leakage_count": 6,
+  "bitemporal_correct_count": 6,
+  "bitemporal_accuracy_pct": 100.0,
+  "future_leakage_eliminated_pct": 100.0,
+  "outcomes": [
+    {
+      "case_id": "BT-01-OFAC-RETROACTIVE-SHELL",
+      "domain": "Sanctions Point-in-Time Audit",
+      "audit_tx_timestamp": 20260601,
+      "ground_truth_code": 10,
+      "naive_unfiltered_answer": 99,
+      "naive_leaked_future_info": true,
+      "bitemporal_guarded_answer": 10,
+      "bitemporal_exact_match": true,
+      "latency_ms": 3908.6
+    },
+    {
+      "case_id": "BT-02-SEC-EARNINGS-RESTATEMENT",
+      "domain": "SEC 10-Q Point-in-Time Backtest",
+      "audit_tx_timestamp": 20260510,
+      "ground_truth_code": 24,
+      "naive_unfiltered_answer": 14,
+      "naive_leaked_future_info": true,
+      "bitemporal_guarded_answer": 24,
+      "bitemporal_exact_match": true,
+      "latency_ms": 1286.1
+    },
+    {
+      "case_id": "BT-03-FDA-DOSAGE-PROTOCOL",
+      "domain": "Clinical Trial Protocol Audit",
+      "audit_tx_timestamp": 20260301,
+      "ground_truth_code": 150,
+      "naive_unfiltered_answer": 75,
+      "naive_leaked_future_info": true,
+      "bitemporal_guarded_answer": 150,
+      "bitemporal_exact_match": true,
+      "latency_ms": 1186.0
+    },
+    {
+      "case_id": "BT-04-BASEL-COLLATERAL-HAIRCUT",
+      "domain": "Basel-III Treasury Stress Audit",
+      "audit_tx_timestamp": 20260415,
+      "ground_truth_code": 4,
+      "naive_unfiltered_answer": 25,
+      "naive_leaked_future_info": true,
+      "bitemporal_guarded_answer": 4,
+      "bitemporal_exact_match": true,
+      "latency_ms": 1093.6
+    },
+    {
+      "case_id": "BT-05-CUSTOMS-TARIFF-RETRO",
+      "domain": "Retroactive Antidumping Duty Audit",
+      "audit_tx_timestamp": 20260512,
+      "ground_truth_code": 3,
+      "naive_unfiltered_answer": 38,
+      "naive_leaked_future_info": true,
+      "bitemporal_guarded_answer": 3,
+      "bitemporal_exact_match": true,
+      "latency_ms": 1104.3
+    },
+    {
+      "case_id": "BT-06-GDPR-CONSENT-REVOCATION",
+      "domain": "GDPR Lawful-Basis Audit",
+      "audit_tx_timestamp": 20260610,
+      "ground_truth_code": 1,
+      "naive_unfiltered_answer": 0,
+      "naive_leaked_future_info": true,
+      "bitemporal_guarded_answer": 1,
+      "bitemporal_exact_match": true,
+      "latency_ms": 1100.0
+    }
+  ]
+}
