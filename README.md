@@ -4,7 +4,8 @@
 [![Python 3.13](https://img.shields.io/badge/python-3.13-3776AB.svg)](https://www.python.org/)
 [![C++20 CSR PageRank](https://img.shields.io/badge/C%2B%2B20--O3-CSR%20PageRank-00599C.svg)](csrc/privora_kernels.cpp)
 [![Rényi DP Certified](https://img.shields.io/badge/R%C3%A9nyi%20DP-(%CE%B5%2C%CE%B4)-14B8A6.svg)](docs/mathematical-proofs.md)
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-emerald.svg)](LICENSE)
+[![Release v1.0.0](https://img.shields.io/badge/release-v1.0.0-1f6feb.svg)](https://github.com/nagarjunak-pixel/privora-graph/releases/tag/v1.0.0)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-10b981.svg)](LICENSE)
 
 **PrivoraGraph** is a clean-room, zero-mock reference implementation of the **three mathematical & systems pillars** required for **Sovereign Regulated Enterprise AI, Financial Point-in-Time Compliance, and Multi-Institution Healthcare/Banking Learning**:
 

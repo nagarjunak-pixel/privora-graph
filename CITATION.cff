@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use or reference privora-graph in research or sovereign enterprise AI architecture, please cite it as below."
+type: software
+title: "PrivoraGraph: Sovereign Differential Privacy (DP-SGD Rényi Accountant), SQL:2011 Bi-Temporal Personalized-PageRank GraphRAG & Byzantine Federated Engine"
+version: 1.0.0
+date-released: "2026-11-16"
+license: Apache-2.0
+url: "https://nagarjunak-pixel.github.io/projects.html#privora-graph"
+repository-code: "https://github.com/nagarjunak-pixel/privora-graph"
+authors:
+  - family-names: "Kamireddy"
+    given-names: "Nagarjuna Reddy"
+    affiliation: "Suryagentic AI"
