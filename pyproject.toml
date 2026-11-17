@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "privora-graph"
 version = "1.0.0"
-description = "Sovereign Differential-Privacy (DP-SGD Rényi Accountant), Bi-Temporal Personalized-PageRank GraphRAG, Byzantine Geometric-Median Aggregation & Native C++20 CSR Engine"
+description = "Privacy & robustness toolkit — DP-SGD with RDP accounting, bi-temporal PageRank retrieval, Multi-Krum/geometric-median aggregation. Reference implementation"
 readme = "README.md"
 license = { text = "Apache-2.0" }
 requires-python = ">=3.12"

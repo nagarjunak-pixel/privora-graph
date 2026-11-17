@@ -1,4 +1,4 @@
-# PrivoraGraph — Sovereign Differential Privacy (`DP-SGD`), Bi-Temporal GraphRAG & Byzantine Engine
+# PrivoraGraph — DP-SGD, Bi-Temporal Graph Retrieval & Byzantine-Robust Aggregation
 
 [![PrivoraGraph Sovereign CI](https://github.com/nagarjunak-pixel/privora-graph/actions/workflows/ci.yml/badge.svg)](https://github.com/nagarjunak-pixel/privora-graph/actions/workflows/ci.yml)
 [![Python 3.13](https://img.shields.io/badge/python-3.13-3776AB.svg)](https://www.python.org/)
@@ -7,12 +7,12 @@
 [![Release v1.0.0](https://img.shields.io/badge/release-v1.0.0-1f6feb.svg)](https://github.com/nagarjunak-pixel/privora-graph/releases/tag/v1.0.0)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-10b981.svg)](LICENSE)
 
-**PrivoraGraph** is a clean-room, zero-mock reference implementation of the **three mathematical & systems pillars** required for **Sovereign Regulated Enterprise AI, Financial Point-in-Time Compliance, and Multi-Institution Healthcare/Banking Learning**:
+**PrivoraGraph** is a small educational reference implementation (~1.7k lines of Python plus a ~100-line C++20 helper) of three techniques from the privacy-preserving and robust ML literature, exercised on synthetic data and a hand-built 6-case retrieval audit:
 
-1. **Per-Sample Clipped `DP-SGD` & Exact Binomial Rényi Differential Privacy (`RDP`) Accountant (`src/privora_graph/privacy/dp_sgd.py`)**: Implements Abadi et al. (CCS 2016) per-example $L_2$ gradient clipping + calibrated Gaussian noise alongside exact log-space evaluation of the Mironov-Talwar-Zhang (2019) Subsampled Gaussian Rényi divergence across $\alpha \in \{2, \dots, 64\}$ and tight Balle et al. (2020) $(\varepsilon, \delta)$ conversion—certifying **`ε = 4.14` (`δ = 1e-5`)** while preserving **`86.87%` held-out accuracy** and eliminating **`90.26%` of Membership Inference Attack (`MIA`) advantage** (`AUC = 0.5051`, coin-flip indistinguishable!).
-2. **Snodgrass `SQL:2011` Bi-Temporal (`Valid-Time` × `Transaction-Time`) Knowledge Graph + Native `C++20` CSR Personalized PageRank (`csrc/privora_kernels.cpp`)**: Separates real-world validity $[v_0, v_1)$ from ledger belief $[\tau_0, \tau_1)$ so `as_of(valid_at, tx_at)` mathematically blocks retroactive restatements and post-audit filings from leaking backward in time, paired with a native `clang++ -O3` CSR Personalized PageRank kernel conserving probability simplex mass to **`1.00000000`** (`0.000000000000` C++20-vs-NumPy `|Δ|`).
-3. **Byzantine-Resilient Sovereign Federated Aggregation (`Multi-Krum` & Smoothed Weiszfeld Geometric Median `RFA`)**: Defends cross-silo learning (`K=9` banks/hospitals) against `33.3%` (`f=3`) coordinated `-24x` sign-flipping adversaries—recovering **`1.00000` (`Multi-Krum`)** and **`+0.87992` (`Weiszfeld RFA`, `12.49x` L2 error reduction)** cosine alignment with the honest gradient while naive `FedAvg` flips to **`-0.88086`**.
-4. **Zero-Mock Live `qwen3.5:4b` Point-in-Time Compliance RAG Audit (`benchmarks/real_qwen_bitemporal.json`)**: Across 6 SEC 10-Q restatement, OFAC SDN shell-ownership, FDA dosage amendment, Basel-III haircut, Customs antidumping, and GDPR revocation audits, **Naive Unfiltered GraphRAG suffers `6/6` (`100%`) retroactive future leaks (`0.0%` point-in-time accuracy)**, whereas **Privora Bi-Temporal `as_of(valid_at, tx_at)` achieves `6/6` (`100.0%`) exact point-in-time compliance (`0` leaks)**.
+1. **Per-sample clipped `DP-SGD` with a Rényi DP accountant (`src/privora_graph/privacy/dp_sgd.py`)**: per-example $L_2$ gradient clipping plus Gaussian noise (Abadi et al., 2016) and a log-space subsampled-Gaussian RDP accountant over $\alpha \in \{2, \dots, 64\}$ with RDP→$(\varepsilon, \delta)$ conversion. On a synthetic 320-record, 16-feature classification task it reports `ε = 4.14` (`δ = 1e-5`), `86.87%` held-out accuracy, and a loss-threshold membership-inference AUC of `0.5051` (`-90.26%` MIA advantage vs. a non-private baseline).
+2. **Bi-temporal (valid-time × transaction-time) knowledge graph with Personalized PageRank (`src/privora_graph/bitemporal/`, `csrc/privora_kernels.cpp`)**: edges carry $[v_0, v_1)$ validity and $[\tau_0, \tau_1)$ recording intervals, so `as_of(valid_at, tx_at)` snapshots exclude facts recorded after the query's transaction time. PageRank runs over a CSR snapshot via an optional C++20 kernel loaded with `ctypes` (NumPy fallback); the two backends agree to `|Δ| = 0` on the bundled example graph.
+3. **Byzantine-robust aggregation (`src/privora_graph/byzantine/robust_fed.py`)**: `FedAvg`, `Multi-Krum`, and a smoothed Weiszfeld geometric median, compared in a simulated `K=9` client / `f=3` sign-flipping (`-24x`) setting on a 256-dim synthetic gradient. Cosine alignment with the honest gradient: `Multi-Krum 1.00000`, `Weiszfeld +0.87992` (`12.49x` lower L2 error), `FedAvg -0.88086`.
+4. **Small point-in-time retrieval check with a local LLM (`benchmarks/real_qwen_bitemporal.json`)**: 6 hand-written scenarios (SEC restatement, OFAC, FDA, Basel-III, customs, GDPR) queried against `qwen3.5:4b` via Ollama. With unfiltered retrieval the model returns the later (future) value in `6/6` cases; with `as_of` filtering it returns the correct point-in-time value in `6/6` cases.
 
 ---
 
@@ -56,6 +56,14 @@ flowchart LR
 | **Bi-Temporal `C++20` CSR PageRank** (`tx_at=20260601`) | `uv run privora query-bitemporal` | **`2` retroactive SDN leaks blocked** | `Simplex = 1.00000000`; C++20 vs NumPy `\|Δ\| = 0.000000000000` |
 | **Byzantine Federated Silos** (`K=9, f=3, -24x` attack) | `uv run privora simulate-byzantine` | **`Multi-Krum`: `1.00000` cos · `RFA`: `12.49x` cut** | `FedAvg` flips to `-0.88086`; Weiszfeld breakdown point `f < K/2` |
 | **Live `qwen3.5:4b` Compliance Audit** (`6` regulated cases) | `uv run privora eval-ollama --live-only` | **`0.0%` (`6` leaks) → `100.0%` (`6/6` exact, `0` leaks)** | Saved in [`benchmarks/real_qwen_bitemporal.json`](benchmarks/real_qwen_bitemporal.json) |
+
+
+## Scope & Limitations
+
+- **Scale:** ~1.7k lines of Python across `src/` and a ~100-line C++20 helper (`csrc/privora_kernels.cpp`); this is an educational reference implementation, not a production-hardened privacy or federated-learning system.
+- **Synthetic, small benchmarks:** the DP-SGD/MIA run uses 320 randomly generated records with a 16-feature MLP, the Byzantine run simulates 9 clients on a 256-dim synthetic gradient, and the graph is a small hand-built example; results are illustrative, not comparisons on public datasets.
+- **6-case LLM check:** the point-in-time audit is 6 self-constructed scenarios run once against a local 4B model (`qwen3.5:4b` via Ollama) on a local machine; it demonstrates the filtering behaviour, not a statistically meaningful evaluation.
+- **Simplified vs. real systems:** the MIA is a simple loss-threshold attack, the RDP accountant is not an audited replacement for libraries such as Opacus/TF-Privacy, and the bi-temporal store is an in-memory Python graph rather than a SQL:2011 database.
 
 ---
 
