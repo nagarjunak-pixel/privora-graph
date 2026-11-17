@@ -1,4 +1,4 @@
-name: PrivoraGraph Sovereign CI
+name: PrivoraGraph CI
 
 on:
   push:
@@ -49,7 +49,7 @@ jobs:
           cache: "npm"
           cache-dependency-path: ui/package-lock.json
 
-      - name: Build Sovereign Privacy & Bi-Temporal Workbench UI
+      - name: Build Privacy & Bi-Temporal Workbench UI
         working-directory: ui
         run: |
           npm ci

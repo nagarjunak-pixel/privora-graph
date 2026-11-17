@@ -1,4 +1,4 @@
-# Mathematical Foundations & Sovereign Proofs in PrivoraGraph
+# Mathematical Foundations & Proofs in PrivoraGraph
 
 This document derives the formal privacy, bi-temporal graph, and Byzantine resilience guarantees implemented and property-tested across `privora-graph`.
 
@@ -39,7 +39,7 @@ $$\pi^{(k+1)} = (1 - \beta)\!\left(P^\top \pi^{(k)} + \Big(\sum_{u \in \mathcal{
 
 ---
 
-## 3. Byzantine-Resilient Sovereign Aggregation (`robust_fed.py`)
+## 3. Byzantine-Resilient Aggregation (`robust_fed.py`)
 
 Given $K$ federated silos containing $f < K / 2$ arbitrary Byzantine adversaries:
 - **Arithmetic Mean (`FedAvg`)** has breakdown point $1/K$: a single silo sending $u_{\text{byz}} = -\Lambda g_{\text{true}}$ shifts the global update arbitrarily ($\cos = -0.881$).

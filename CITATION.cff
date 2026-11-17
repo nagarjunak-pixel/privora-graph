@@ -1,7 +1,7 @@
 cff-version: 1.2.0
-message: "If you use or reference privora-graph in research or sovereign enterprise AI architecture, please cite it as below."
+message: "If you use or reference privora-graph in research or enterprise AI architecture, please cite it as below."
 type: software
-title: "PrivoraGraph: Sovereign Differential Privacy (DP-SGD Rényi Accountant), SQL:2011 Bi-Temporal Personalized-PageRank GraphRAG & Byzantine Federated Engine"
+title: "PrivoraGraph: Differential Privacy (DP-SGD Rényi Accountant), Bi-Temporal Personalized-PageRank GraphRAG & Byzantine-Robust Aggregation"
 version: 1.0.0
 date-released: "2026-11-16"
 license: Apache-2.0

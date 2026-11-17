@@ -1,6 +1,6 @@
 # PrivoraGraph — DP-SGD, Bi-Temporal Graph Retrieval & Byzantine-Robust Aggregation
 
-[![PrivoraGraph Sovereign CI](https://github.com/nagarjunak-pixel/privora-graph/actions/workflows/ci.yml/badge.svg)](https://github.com/nagarjunak-pixel/privora-graph/actions/workflows/ci.yml)
+[![PrivoraGraph CI](https://github.com/nagarjunak-pixel/privora-graph/actions/workflows/ci.yml/badge.svg)](https://github.com/nagarjunak-pixel/privora-graph/actions/workflows/ci.yml)
 [![Python 3.13](https://img.shields.io/badge/python-3.13-3776AB.svg)](https://www.python.org/)
 [![C++20 CSR PageRank](https://img.shields.io/badge/C%2B%2B20--O3-CSR%20PageRank-00599C.svg)](csrc/privora_kernels.cpp)
 [![Rényi DP Certified](https://img.shields.io/badge/R%C3%A9nyi%20DP-(%CE%B5%2C%CE%B4)-14B8A6.svg)](docs/mathematical-proofs.md)
@@ -16,7 +16,7 @@
 
 ---
 
-## Live Sovereign DP-SGD, Bi-Temporal GraphRAG & Byzantine Workbench
+## Interactive DP-SGD, Bi-Temporal GraphRAG & Byzantine Workbench
 
 ![PrivoraGraph Live Workbench — Rényi DP-SGD Accountant, SQL:2011 Bi-Temporal C++20 CSR PageRank & Byzantine Aggregation](docs/assets/workbench-preview.png)
 
@@ -81,14 +81,14 @@ uv run pytest --cov=privora_graph --cov-report=term-missing --cov-fail-under=95
 uv run privora demo
 uv run privora eval-ollama
 
-# Build & launch the PrivoraGraph Sovereign Workbench on http://127.0.0.1:8060
+# Build & launch the PrivoraGraph Workbench on http://127.0.0.1:8060
 cd ui && npm install && npm run build && cd ..
 uv run privora serve --host 127.0.0.1 --port 8060
 ```
 
 ## Documentation & Mathematical Proofs
 
-- [Mathematical Foundations & Sovereign Proofs](docs/mathematical-proofs.md)
+- [Mathematical Foundations & Proofs](docs/mathematical-proofs.md)
 - [ADR 0001: Exact Binomial Rényi DP-SGD & MIA Audit](docs/adr/0001-renyi-dp-sgd-and-mia-audit.md)
 - [ADR 0002: Snodgrass SQL:2011 Bi-Temporal CSR PageRank](docs/adr/0002-bitemporal-ppr-zero-lookahead.md)
 - [ADR 0003: Byzantine Multi-Krum & Smoothed Weiszfeld RFA](docs/adr/0003-byzantine-weiszfeld-and-multikrum.md)
@@ -100,9 +100,9 @@ Apache License 2.0 — Copyright (c) 2026 Nagarjuna Kamireddy.
 
 ---
 
-## Author & Enterprise AI Architecture Hub
+## Author & Links
 Built by **[Nagarjuna Reddy Kamireddy](https://nagarjunak-pixel.github.io/)** (*Nagarjuna Kamireddy / Nagarjuna K*) — Lead AI Architect, GenAI & Agentic AI Lead, and Corporate AI Trainer (20+ years across Enterprise Data, SAP HANA & Production AI; AWS Certified Solutions Architect – Professional & NVIDIA-Certified Professional: Agentic AI).
 
-- **Official Portfolio & Architecture Hub:** [https://nagarjunak-pixel.github.io/](https://nagarjunak-pixel.github.io/)
-- **Enterprise Case Studies & Technical Articles:** [Case Studies](https://nagarjunak-pixel.github.io/case-studies.html) · [Architecture Articles](https://nagarjunak-pixel.github.io/articles.html) · [10-Mandate Role Fit](https://nagarjunak-pixel.github.io/roles.html)
+- **Portfolio:** [https://nagarjunak-pixel.github.io/](https://nagarjunak-pixel.github.io/)
+- **Case Studies & Technical Articles:** [Case Studies](https://nagarjunak-pixel.github.io/case-studies.html) · [Architecture Articles](https://nagarjunak-pixel.github.io/articles.html) · [10-Mandate Role Fit](https://nagarjunak-pixel.github.io/roles.html)
 - **Master CV & AI Search Index:** [Master CV](https://nagarjunak-pixel.github.io/resume.html) · [`llms-full.txt`](https://nagarjunak-pixel.github.io/llms-full.txt) · [LinkedIn](https://www.linkedin.com/in/nagarjuna-kamireddy)
